@@ -1,10 +1,10 @@
-// Karakter bileşeniniz buraya gelecek
+
 import React from "react";
 
 const CharacterComponent = (props) => {
   const { CharacterData } = props;
   
-  const { name, height, mass, hair_color, eye_color, skin_color, birth_year, gender, homeworld, films} = CharacterData;
+  const { name, height, mass, hair_color, eye_color, skin_color, birth_year, gender, homeworld, films , species, vehicles , starships } = CharacterData;
   
   return (
     <div className="container">
@@ -33,8 +33,9 @@ const CharacterComponent = (props) => {
             
       <div className="UrlsSpecies">
         <ul>
-        {CharacterData.species.length &&
-          CharacterData.species.map((item, index) => (
+        {
+            species.length > 0 &&
+            species.map((item, index) => (
             <li key={index}>
               <a href={item}>{item}</a>
             </li>
@@ -44,8 +45,9 @@ const CharacterComponent = (props) => {
 
         <div className="UrlsVehicles">
         <ul>
-        {CharacterData.vehicles.length &&
-          CharacterData.vehicles.map((item, index) => (
+        {
+          vehicles.length > 0 &&
+          vehicles.map((item, index) => (
             <li key={index}>
               <a href={item}>{item}</a>
             </li>
@@ -55,8 +57,9 @@ const CharacterComponent = (props) => {
 
       <div className="UrlsStarships">
         <ul>
-        {CharacterData.starships.length &&
-          CharacterData.starships.map((item, index) => (
+        {
+          starships.length > 0 &&
+          starships.map((item, index) => (
             <li key={index}>
               <a href={item}>{item}</a>
             </li>
