@@ -14,6 +14,7 @@ function ColorSchemesExample() {
         <Container>
           <Navbar.Brand href="#home">StarWarsWorld</Navbar.Brand>
           <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Characters</Nav.Link>
             <Nav.Link as={Link} to="/planets">Planets</Nav.Link>
             
           </Nav>
@@ -21,7 +22,9 @@ function ColorSchemesExample() {
       </Navbar>
 
       <Switch>
-        
+        <Route exact path="/">
+         
+        </Route>
         <Route path="/planets">
           <PlanetContainer callplanet={"callplanet"} />
         </Route>
