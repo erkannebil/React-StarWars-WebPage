@@ -16,7 +16,7 @@ const getRequest = async (url)=>{
     return result;
 }
 
-const CharacterObj = {
+const DataObj = {
     GetPeople: async (pageNo = 1) => {
         let url = "https://swapi.dev/api/people/?page=" + pageNo; //https://swapi.dev/api/people/?page=2
         const result = await getRequest(url);
@@ -47,9 +47,12 @@ const CharacterObj = {
         const result = await getRequest(url);
         return result;
     },
+    GetSpeficic: async (url) => {
+        const result = await getRequest(url);
+        return result;
+    }
 }
 
 
 
-export default CharacterObj;
-
+export default DataObj;

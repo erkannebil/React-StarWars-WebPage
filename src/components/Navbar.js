@@ -1,23 +1,34 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, Route, Switch } from 'react-router-dom';
+import PlanetContainer from './planets/PlanetContainer';
+
+
 
 function ColorSchemesExample() {
+  const characters = [{ name: 'Luke Skywalker' }, { name: 'Darth Vader' }];
+
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#mainPage">StarWarsWorld</Navbar.Brand>
+          <Navbar.Brand href="#home">StarWarsWorld</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#films">Films</Nav.Link>
-            <Nav.Link href="#planets">Planets</Nav.Link>
-            <Nav.Link href="#species">Species</Nav.Link>
-            <Nav.Link href="#starships">Starships</Nav.Link>
-            <Nav.Link href="#vehicles">Vehicles</Nav.Link>
+            <Nav.Link as={Link} to="/planets">Planets</Nav.Link>
+            
           </Nav>
         </Container>
       </Navbar>
-      <br />
+
+      <Switch>
+        
+        <Route path="/planets">
+          <PlanetContainer callplanet={"callplanet"} />
+        </Route>
+        <Route path="/planets">
+          
+        </Route>
+      </Switch>
     </>
   );
 }
