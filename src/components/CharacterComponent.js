@@ -1,4 +1,16 @@
+//fetch data'dan şu sonuç gelecek:
+//https://swapi.dev/api/people/?page=1
 
+
+//https://swapi.dev/api/planets/?page=1
+/*
+"people": "https://swapi.dev/api/people/", 
+"planets": "https://swapi.dev/api/planets/", 
+"films": "https://swapi.dev/api/films/", 
+"species": "https://swapi.dev/api/species/", 
+"vehicles": "https://swapi.dev/api/vehicles/", 
+"starships": "https://swapi.dev/api/starships/"
+*/
 import React from "react";
 
 const CharacterComponent = (props) => {

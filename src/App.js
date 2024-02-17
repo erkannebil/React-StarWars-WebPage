@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from "react";
 import CharacterComponent from "./components/CharacterComponent.js";
-import CharacterObj from "./FetchData.js";
+import CharacterObj from "./fetchData.js";
 
 const App = () => {
   const [Characters, setCharacters] = useState({});
-  let [pageNo, setPageNo] = useState(1); 
+  let [pageNo, setPageNo] = useState(1); //?
 
+  // Try to think through what state you'll need for this app before starting. Then build out
+  // the state properties here.
   useEffect(() => {
 
+    
     const fetchDataAndSetCharacters = async () => {
       try {
         console.log(pageNo);
         const data = await CharacterObj.GetPeople(pageNo);
         console.log(data);
+/*  
+        "count": 82,
+        "next": "https://swapi.dev/api/people/?page=2",
+        "previous": null,
+        "results": []
+*/
         setCharacters(data);
        // console.log(data);
       } catch (error) {
@@ -38,7 +47,7 @@ const App = () => {
   // sync up with, if any.  
   //console.log(Characters);
   return (
-    <div className="App"> 
+    <div className="App">
       {Characters.previous &&
         <button onClick={prev}>PREVIOUS</button>
       }
