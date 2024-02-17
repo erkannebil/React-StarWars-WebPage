@@ -1,50 +1,30 @@
-import React, { useState, useEffect } from "react";
-import CharacterComponent from "./components/CharacterComponent.js";
-import CharacterObj from "./fetchData.js";
-import NavbarComponent from './components/Navbar.js'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Films from "./pages/Films.jsx";
-import Characters from './pages/MainPage.jsx';
-
-
+// App.js
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import MainPage from './pages/MainPage.jsx';
+import Films from './pages/Film.jsx';
+import Planets from './pages/Planets.jsx';
+import Species from './pages/Species.jsx';
+import Starships from './pages/Starships.jsx';
+import Vehicles from './pages/Vehicles.jsx';
 
 const App = () => {
-  const [Characters, setCharacters] = useState({});
-  let [pageNo, setPageNo] = useState(1);  
-
-  useEffect(() => {
-
-    
-    const fetchDataAndSetCharacters = async () => {
-      try {
-        console.log(pageNo);
-        const data = await CharacterObj.GetPeople(pageNo);
-        console.log(data);
-
-        setCharacters(data);
-      } catch (error) {
-        console.log("Error fetching data:", error);
-      }
-    };
-
-    fetchDataAndSetCharacters();
-  }, [pageNo]);
-
- const next= ()=>{
-    let tmp_pageNo=pageNo +1;
-    setPageNo(tmp_pageNo);
-    console.log(pageNo);
-  }
- const prev= ()=>{
-  let tmp_pageNo=pageNo -1;
-    setPageNo(tmp_pageNo);
-    console.log(pageNo);
-  }
-
   return (
-    <div className="App">
-      
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route path="/mainPage" component={MainPage} />
+          <Route path="/films" component={Films} />
+          <Route path="/planets" component={Planets} />
+          <Route path="/species" component={Species} />
+          <Route path="/starships" component={Starships} />
+          <Route path="/vehicles" component={Vehicles} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
+
 export default App;
